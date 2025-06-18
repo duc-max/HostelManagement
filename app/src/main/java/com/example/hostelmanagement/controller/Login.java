@@ -32,12 +32,12 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
-        phone = findViewById(R.id.editPhone);
-        password = findViewById(R.id.editPassword);
+        phone = findViewById(R.id.editPhoneRes);
+        password = findViewById(R.id.editPasswordRes);
         createLink = findViewById(R.id.linkCreate);
-        errorLogin = findViewById(R.id.loginError);
+        errorLogin = findViewById(R.id.resError);
         forgetPassLink = findViewById(R.id.btnForgetPass);
-        btnLogin = findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnRes);
 
         createLink.setOnClickListener(new View.OnClickListener() {
             @Override

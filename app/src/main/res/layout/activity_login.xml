@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editPhone"
+        android:id="@+id/editPhoneRes"
         android:layout_width="357dp"
         android:layout_height="48dp"
         android:layout_marginTop="324dp"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/editPasswordRes"
         android:layout_width="357dp"
         android:layout_height="48dp"
         android:layout_marginTop="420dp"
@@ -72,9 +72,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/loginError"
-        android:layout_width="354dp"
-        android:layout_height="39dp"
+        android:id="@+id/resError"
+        android:layout_width="349dp"
+        android:layout_height="19dp"
         android:layout_marginTop="480dp"
         android:textColor="#E60808"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,16 +83,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="356dp"
+        android:id="@+id/btnRes"
+        android:layout_width="357dp"
         android:layout_height="40dp"
-        android:layout_marginTop="536dp"
+        android:layout_marginTop="512dp"
         android:background="@drawable/custom_button"
         android:text="Đăng nhập tài khoản"
         android:textSize="16sp"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -100,13 +100,13 @@
         android:id="@+id/linkCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="628dp"
+        android:layout_marginTop="576dp"
         android:text="Tạo tài khoản"
         android:textColor="#2196F3"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,13 +114,13 @@
         android:id="@+id/btnForgetPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="628dp"
+        android:layout_marginTop="576dp"
         android:text="Quên mật khẩu"
         android:textColor="#2196F3"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
