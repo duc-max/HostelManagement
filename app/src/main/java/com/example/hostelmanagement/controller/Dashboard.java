@@ -1,10 +1,8 @@
 package com.example.hostelmanagement.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,40 +10,30 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.hostelmanagement.DAO.UserDAO;
 import com.example.hostelmanagement.R;
-import com.example.hostelmanagement.model.User;
 
-import java.util.List;
+public class Dashboard extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
-
-    Button btnNow;
-
+    ImageView btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dashboard);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        btnNow = findViewById(R.id.btnNow);
+        btnBack = findViewById(R.id.btnBack);
 
-//        userDAO.addUser(new User(0, "duc_tran", "0123456789", "123456", "renter"));
-
-
-
-
-        btnNow.setOnClickListener(new View.OnClickListener() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+
             }
         });
+
     }
 }

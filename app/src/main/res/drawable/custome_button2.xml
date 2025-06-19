@@ -11,7 +11,7 @@
 
     <!-- Viền nếu bạn muốn (có thể bỏ nếu không cần) -->
     <stroke
-        android:width="3dp"
+        android:width="2dp"
         android:color="#2196F3" />
 
     <!-- Padding bên trong nếu cần -->
