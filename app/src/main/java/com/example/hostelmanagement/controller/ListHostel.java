@@ -13,27 +13,40 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.hostelmanagement.R;
 
-public class Dashboard extends AppCompatActivity {
+public class ListHostel extends AppCompatActivity {
 
-    ImageView  hostelList;
+    ImageView btnBack, btnCreateHostel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_list_hostel);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        btnBack = findViewById(R.id.btnBack);
+        btnCreateHostel = findViewById(R.id.btnCreateHostel);
 
-        hostelList = findViewById(R.id.hostelList);
-        hostelList.setOnClickListener(new View.OnClickListener() {
+        btnCreateHostel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Dashboard.this, ListHostel.class);
+                Intent intent = new Intent(ListHostel.this, CreateHostel.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListHostel.this, Dashboard.class);
+                startActivity(intent);
+                finish();
             }
         });
 

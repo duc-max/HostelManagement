@@ -18,7 +18,6 @@ public class UserDAO {
         dbHelper = new MyDatabaseHelper(context);
     }
 
-    // Thêm người dùng mới
     public long addUser(User user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();

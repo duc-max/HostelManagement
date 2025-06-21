@@ -9,6 +9,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
 
     public static final String TABLE_USER = "users";
+    public static final String TABLE_HOSTEL = "hostel";
 
     public MyDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -24,6 +25,26 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 "role TEXT" +
                 ")";
         db.execSQL(createTable);
+
+        String createRoomTable = "CREATE TABLE " + TABLE_HOSTEL +" (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "address TEXT," +
+                "owner TEXT," +
+                "phone TEXT," +
+                "electric INTEGER," +
+                "water INTEGER," +
+                "vehicle INTEGER," +
+                "internet INTEGER," +
+                "laundry INTEGER," +
+                "elevator INTEGER," +
+                "tv INTEGER," +
+                "garbage INTEGER," +
+                "service INTEGER," +
+                "bank_owner TEXT," +
+                "bank_name TEXT," +
+                "bank_account TEXT" +
+                ")";
+        db.execSQL(createRoomTable);
     }
 
     @Override
