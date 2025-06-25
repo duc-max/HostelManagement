@@ -24,6 +24,7 @@ import android.os.UserHandle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -61,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnNow = findViewById(R.id.btnNow);
+//        boolean deleted = this.deleteDatabase("MyDatabase.db");
+//        if (deleted) {
+//            Toast.makeText(this, "Database đã được xóa", Toast.LENGTH_SHORT).show();
+//        }
 
         btnNow.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,8 +1,11 @@
 package com.example.hostelmanagement.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +22,7 @@ public class CreateHostel extends AppCompatActivity {
 
     EditText edtAddress, edtOwner, edtPhone, edtElectric, edtWater, edtVehicle, edtInternet, edtLaundry, edtElevator, edtTv, edtGarbage, edtService, edtBankOwner, edtBank, edtBankAccount;
     Button btnSave;
+    ImageView btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,8 @@ public class CreateHostel extends AppCompatActivity {
         edtBank = findViewById(R.id.edt_bank);
         edtBankAccount = findViewById(R.id.edt_bank_account);
         btnSave = findViewById(R.id.btn_save);
+        btnBack = findViewById(R.id.btnBack);
+
 
         btnSave.setOnClickListener(v -> {
             Hostel room = new Hostel(
@@ -73,6 +79,14 @@ public class CreateHostel extends AppCompatActivity {
                 Toast.makeText(this, "Lưu thành công!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Lỗi khi lưu!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateHostel.this, ListHostel.class);
+                startActivity(intent);
             }
         });
     }

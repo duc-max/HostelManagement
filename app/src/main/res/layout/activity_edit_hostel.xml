@@ -33,7 +33,7 @@
             android:layout_width="257dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Tạo thông tin phòng"
+            android:text="Sửa thông tin phòng"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />

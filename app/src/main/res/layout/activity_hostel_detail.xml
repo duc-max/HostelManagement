@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Địa chỉ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#007BFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp"
+
+            >
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/circle_blue"
+                android:backgroundTint="#007BFF"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="123 Nguyễn Đình Chiểu, P5, Q3"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_blue"
+                android:backgroundTint="#007BFF"
+                android:src="@drawable/ic_edit" />
+        </LinearLayout>
+
+        <!-- Chủ nhà -->
+        <TextView
+            android:id="@+id/tvOwnerPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:text="Quang - 0987654321"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Bảng giá -->
+        <TableLayout
+            android:id="@+id/tableFees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow>
+
+                <TextView
+                    android:text="Loại phí"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:text="Đơn vị tính"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:text="Giá tiền"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Điện" />
+
+                <TextView android:text="KWH" />
+
+                <TextView android:text="4.000 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Nước" />
+
+                <TextView android:text="phòng" />
+
+                <TextView android:text="50.000 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Xe" />
+
+                <TextView android:text="chiếc" />
+
+                <TextView android:text="10.000 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Internet" />
+
+                <TextView android:text="phòng" />
+
+                <TextView android:text="100.000 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Giặt sấy" />
+
+                <TextView android:text="phòng" />
+
+                <TextView android:text="50.000 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Thang máy" />
+
+                <TextView android:text="phòng" />
+
+                <TextView android:text="0 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Tivi cáp" />
+
+                <TextView android:text="phòng" />
+
+                <TextView android:text="0 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Rác" />
+
+                <TextView android:text="phòng" />
+
+                <TextView android:text="0 đ" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView android:text="Dịch vụ" />
+
+                <TextView android:text="phòng" />
+
+                <TextView android:text="0 đ" />
+            </TableRow>
+        </TableLayout>
+
+        <!-- Thông tin chuyển khoản -->
+        <TextView
+            android:id="@+id/tvBankInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Thông tin chuyển khoản\nChủ TK: Quang\nNgân hàng Tiên Phong Bank\nSTK: 0987654321"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <!-- Nút xem danh sách phòng -->
+        <Button
+            android:id="@+id/btnViewRooms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#28A745"
+            android:text="Xem danh sách phòng"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>

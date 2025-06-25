@@ -21,6 +21,7 @@ public class HostelDAO {
     public long insertRoom(Hostel room) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
+
         values.put("address", room.getAddress());
         values.put("owner", room.getOwner());
         values.put("phone", room.getPhone());
@@ -47,6 +48,7 @@ public class HostelDAO {
         if (cursor.moveToFirst()) {
             do {
                 Hostel room = new Hostel();
+                room.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
                 room.setAddress(cursor.getString(cursor.getColumnIndexOrThrow("address")));
                 room.setOwner(cursor.getString(cursor.getColumnIndexOrThrow("owner")));
                 room.setPhone(cursor.getString(cursor.getColumnIndexOrThrow("phone")));
@@ -73,5 +75,30 @@ public class HostelDAO {
         db.delete(MyDatabaseHelper.TABLE_HOSTEL, "id = ?", new String[]{String.valueOf(id)});
         db.close();
     }
+
+    public int updateRoom(Hostel room) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("address", room.getAddress());
+        values.put("owner", room.getOwner());
+        values.put("phone", room.getPhone());
+        values.put("electric", room.getElectricPrice());
+        values.put("water", room.getWaterPrice());
+        values.put("vehicle", room.getVehiclePrice());
+        values.put("internet", room.getInternetPrice());
+        values.put("laundry", room.getLaundryPrice());
+        values.put("elevator", room.getElevatorPrice());
+        values.put("tv", room.getTvPrice());
+        values.put("garbage", room.getGarbagePrice());
+        values.put("service", room.getServicePrice());
+        values.put("bank_owner", room.getBankOwner());
+        values.put("bank_name", room.getBankName());
+        values.put("bank_account", room.getBankAccount());
+
+        // Cập nhật dựa trên ID của phòng
+        return db.update(MyDatabaseHelper.TABLE_HOSTEL, values, "id = ?", new String[]{String.valueOf(room.getId())});
+    }
+
 
 }

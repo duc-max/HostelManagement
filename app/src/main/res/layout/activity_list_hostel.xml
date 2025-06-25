@@ -1,35 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDF8FF"
     android:orientation="vertical"
-    tools:context=".controller.Dashboard">
+    android:background="#FDF8FF">
 
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#007BFF"
         android:gravity="center_vertical"
-        android:paddingHorizontal="16dp">
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            app:srcCompat="@drawable/ic_back" />
+            android:src="@drawable/ic_back" />
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginStart="8dp"
             android:src="@drawable/ic_home" />
 
         <TextView
-            android:layout_width="257dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:text="Các căn nhà của bạn"
             android:textColor="#FFFFFF"
@@ -40,8 +41,21 @@
             android:id="@+id/btnCreateHostel"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_add" />
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_add" />
     </LinearLayout>
 
+    <!-- Danh sách hostel -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/layoutHostelList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 </LinearLayout>
