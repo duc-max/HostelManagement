@@ -31,6 +31,16 @@ public class ListRoom extends AppCompatActivity {
     List<Room> roomList;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        RadioGroup radioGroup = findViewById(R.id.radioGroupStatus);
+        if (radioGroup.getCheckedRadioButtonId() == R.id.radioAvailable) {
+            loadRoomListByStatus(false);
+        } else {
+            loadRoomListByStatus(true);
+        }
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -62,17 +72,15 @@ public class ListRoom extends AppCompatActivity {
             }
         });
 
-        // Mặc định hiển thị phòng trống
         radioAvailable.setChecked(true);
 
-        // Tạo phòng
         btnCreateRoom.setOnClickListener(v -> {
             Intent intent = new Intent(ListRoom.this, CreateRoom.class);
             intent.putExtra("hostel_id", hostelId);
             startActivity(intent);
         });
 
-        // Quay lại
+
         btnBack.setOnClickListener(v -> {
             Intent intent = new Intent(ListRoom.this, ListHostel.class);
             startActivity(intent);

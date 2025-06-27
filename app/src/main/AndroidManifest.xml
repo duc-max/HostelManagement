@@ -13,6 +13,15 @@
         android:theme="@style/Theme.HostelManagement"
         tools:targetApi="31">
         <activity
+            android:name=".controller.EditRoom"
+            android:exported="false" />
+        <activity
+            android:name=".controller.ViewContract"
+            android:exported="false" />
+        <activity
+            android:name=".controller.CreateContract"
+            android:exported="false" />
+        <activity
             android:name=".controller.CreateRoom"
             android:exported="false" />
         <activity

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FDF8FF"
- >
+    >
 
     <!-- Header -->
     <LinearLayout
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="#007BFF"
-                android:text="Tao phòng"
+                android:text="Cập nhật thông tin"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </ScrollView>

@@ -42,6 +42,26 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/tvCustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Người thuê: A Minh"
+            android:layout_below="@id/tvPrice"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvCustomerPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SĐT: 0777888639"
+            android:layout_below="@id/tvCustomerName"
+            android:layout_marginTop="2dp"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
         <ImageView
             android:id="@+id/btnEdit"
             android:layout_width="24dp"
@@ -67,7 +87,7 @@
             android:backgroundTint="#FF5722"
             android:textColor="#FFFFFF"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/tvPrice"
+            android:layout_below="@id/tvCustomerPhone"
             android:layout_marginTop="10dp"/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

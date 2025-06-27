@@ -17,58 +17,72 @@ import com.example.hostelmanagement.DAO.RoomDAO;
 import com.example.hostelmanagement.R;
 import com.example.hostelmanagement.model.Room;
 
-public class CreateRoom extends AppCompatActivity {
+public class EditRoom extends AppCompatActivity {
 
     EditText edtRoomName, edtRoomPrice;
-    Button btnCreateRoom;
+    Button btnSave;
+    RoomDAO roomDAO;
+    Room room;
     ImageView btnBack;
-    int hostelId;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_create_room);
+        setContentView(R.layout.activity_edit_room);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+        // Ánh xạ view
         edtRoomName = findViewById(R.id.edtRoomName);
         edtRoomPrice = findViewById(R.id.edtRoomPrice);
-        btnCreateRoom = findViewById(R.id.btnSave);
+        btnSave = findViewById(R.id.btnSave);
         btnBack = findViewById(R.id.btnBack);
-        hostelId = getIntent().getIntExtra("hostel_id", -1);
 
-        btnCreateRoom.setOnClickListener(v -> {
+        roomDAO = new RoomDAO(this);
+        int roomId = getIntent().getIntExtra("room_id", -1);
+
+        if (roomId != -1) {
+            room = roomDAO.getRoomById(roomId);
+            if (room != null) {
+                edtRoomName.setText(room.getRoomName());
+                edtRoomPrice.setText(String.valueOf(room.getPrice()));
+                // edtNote.setText(room.getNote()); // nếu có trường note
+            }
+        }
+
+        btnSave.setOnClickListener(v -> {
             String name = edtRoomName.getText().toString().trim();
             String priceStr = edtRoomPrice.getText().toString().trim();
 
             if (name.isEmpty() || priceStr.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             int price = Integer.parseInt(priceStr);
 
-            Room room = new Room();
             room.setRoomName(name);
             room.setPrice(price);
-            room.setHostelId(hostelId);
-            room.setStatus(false);
 
-            RoomDAO roomDAO = new RoomDAO(this);
-            long result = roomDAO.insertRoom(room);
+            int result = roomDAO.updateRoom(room);
             if (result > 0) {
-                Toast.makeText(this, "Thêm phòng thành công!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Cập nhật phòng thành công", Toast.LENGTH_SHORT).show();
+                finish(); // quay lại màn trước
             } else {
-                Toast.makeText(this, "Thêm phòng thất bại!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
             }
         });
 
         btnBack.setOnClickListener(v -> {
-            Intent intent = new Intent(CreateRoom.this, ListRoom.class);
+            Intent intent = new Intent(EditRoom.this, ListRoom.class);
             startActivity(intent);
         });
     }
+
 }

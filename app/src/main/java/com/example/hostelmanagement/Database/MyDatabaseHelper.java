@@ -11,6 +11,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_USER = "users";
     public static final String TABLE_HOSTEL = "hostel";
     public static final String TABLE_ROOM = "room";
+    public static final String TABLE_CONTRACT = "contract";
 
     public MyDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -56,11 +57,37 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY(hostelId) REFERENCES hostel(id)" +
                 ")";
         db.execSQL(createRoomTable);
+
+        String createContractTable = "CREATE TABLE " + TABLE_CONTRACT + " (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "contractNumber TEXT," +
+                "customerName TEXT," +
+                "phone TEXT," +
+                "address TEXT," +
+                "room TEXT," +
+                "numPeople INTEGER," +
+                "roomPrice INTEGER," +
+                "deposit INTEGER," +
+                "startDate TEXT," +
+                "duration INTEGER," +
+                "reminder INTEGER," +                  // 0: không nhắc, 1: có nhắc
+                "electricIndex INTEGER," +
+                "hasParking INTEGER," +                // 0: không, 1: có
+                "bikeCount INTEGER," +
+                "hasInternet INTEGER," +
+                "hasLaundry INTEGER," +
+                "note TEXT" +
+                ")";
+        db.execSQL(createContractTable);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTEL);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ROOM);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTRACT);
         onCreate(db);
     }
 }

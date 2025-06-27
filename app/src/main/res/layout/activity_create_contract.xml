@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDF8FF"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#007BFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Tạo hợp đồng"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Scrollable Form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <!-- Contract Number -->
+            <TextView
+                android:id="@+id/edtContractNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+             />
+
+            <!-- Customer Info -->
+            <EditText
+                android:id="@+id/edtCustomerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên khách hàng *"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Điện thoại"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Địa chỉ *"
+                android:inputType="textPostalAddress" />
+
+            <!-- Room Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/edtRoom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Phòng *"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/edtNumPeople"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Số người ở *"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <!-- Price Info -->
+            <EditText
+                android:id="@+id/edtRoomPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tiền phòng *"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/edtDeposit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tiền cọc"
+                android:inputType="numberDecimal" />
+
+            <!-- Contract Duration -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/edtStartDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:hint="Ngày ký HĐ *" />
+
+                <EditText
+                    android:id="@+id/edtDuration"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Số tháng HĐ *"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <!-- Reminder -->
+            <CheckBox
+                android:id="@+id/chkReminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhắc tôi trước 1 tháng khi hợp đồng này hết hạn" />
+
+            <!-- Electricity Index -->
+            <EditText
+                android:id="@+id/edtElectricIndex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Chỉ số điện *"
+                android:inputType="number" />
+
+            <!-- Extra Services -->
+            <CheckBox
+                android:id="@+id/chkParking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gửi xe 10.000 đ/chiếc" />
+
+            <EditText
+                android:id="@+id/edtBikeCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="SL xe *"
+                android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/chkInternet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Internet 100.000 đ/phòng" />
+
+            <CheckBox
+                android:id="@+id/chkLaundry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giặt sấy 50.000 đ/phòng" />
+
+            <!-- Notes -->
+            <EditText
+                android:id="@+id/edtNotes"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="top"
+                android:hint="Ghi chú"
+                android:inputType="textMultiLine" />
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/btnSaveContract"
+                android:text="Lưu thông tin phòng"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#007BFF"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
