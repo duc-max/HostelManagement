@@ -12,7 +12,7 @@ public class Contract {
     private int deposit;
     private String startDate;
     private int duration;
-    private int reminder; // 0 = no, 1 = yes
+    private int reminder;
     private int electricIndex;
     private int hasParking;
     private int bikeCount;
@@ -20,7 +20,6 @@ public class Contract {
     private int hasLaundry;
     private String note;
 
-    // Constructors
     public Contract() {
     }
 

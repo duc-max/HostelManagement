@@ -15,7 +15,7 @@ import com.example.hostelmanagement.R;
 
 public class Dashboard extends AppCompatActivity {
 
-    ImageView  hostelList;
+    ImageView  hostelList, btnFee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +29,19 @@ public class Dashboard extends AppCompatActivity {
         });
 
         hostelList = findViewById(R.id.hostelList);
+        btnFee = findViewById(R.id.btnFee);
         hostelList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Dashboard.this, ListHostel.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, Fee.class);
                 startActivity(intent);
             }
         });

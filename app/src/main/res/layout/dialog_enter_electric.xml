@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Room Info -->
+    <TextView
+        android:id="@+id/tvRoomInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phòng: 101   Người thuê: A Minh"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Old Electric Reading (disabled) -->
+    <EditText
+        android:id="@+id/edtOldElectric"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Chỉ số điện cũ"
+        android:enabled="false"
+        android:background="@drawable/bg_edit_disabled"
+        android:padding="12dp"
+        android:inputType="number" />
+
+    <!-- New Electric Reading -->
+    <EditText
+        android:id="@+id/edtNewElectric"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Chỉ số điện mới *"
+        android:background="@drawable/bg_edit_normal"
+        android:padding="12dp"
+        android:inputType="number" />
+
+    <!-- Error Message -->
+    <TextView
+        android:id="@+id/tvElectricError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Vui lòng nhập chỉ số mới lớn hơn chỉ số cũ"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <!-- View Bill Button -->
+    <Button
+        android:id="@+id/btnViewBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Xem hoá đơn"
+        android:textColor="@android:color/white"
+        android:background="#007BFF" />
+</LinearLayout>
