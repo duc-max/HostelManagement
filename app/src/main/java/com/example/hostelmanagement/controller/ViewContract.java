@@ -132,12 +132,13 @@ public class ViewContract extends AppCompatActivity {
      */
     private void loadContractData(int id) {
         currentContract = contractDAO.getContractById(id);
+       Room room = roomDAO.getRoomById(currentContract.getRoom());
         if (currentContract != null) {
             edtContractNumber.setText(currentContract.getContractNumber());
             edtCustomerName.setText(currentContract.getCustomerName());
             edtPhone.setText(currentContract.getPhone());
             edtAddress.setText(currentContract.getAddress());
-            edtRoom.setText(currentContract.getRoom());
+            edtRoom.setText(room.getRoomName());
             edtNumPeople.setText(String.valueOf(currentContract.getNumPeople()));
             edtRoomPrice.setText(String.valueOf(currentContract.getRoomPrice()));
             edtDeposit.setText(String.valueOf(currentContract.getDeposit()));
@@ -170,16 +171,14 @@ public class ViewContract extends AppCompatActivity {
             return;
         }
 
-        // Update currentContract object with data from UI fields
         currentContract.setCustomerName(edtCustomerName.getText().toString());
         currentContract.setPhone(edtPhone.getText().toString());
         currentContract.setAddress(edtAddress.getText().toString());
-        // ID and ContractNumber are not updated
-        // Room name is not updated as per the requirement
+
         try {
             currentContract.setNumPeople(Integer.parseInt(edtNumPeople.getText().toString()));
         } catch (NumberFormatException e) {
-            currentContract.setNumPeople(0); // Default or handle error for invalid input
+            currentContract.setNumPeople(0);
         }
         try {
             currentContract.setRoomPrice(Integer.parseInt(edtRoomPrice.getText().toString()));

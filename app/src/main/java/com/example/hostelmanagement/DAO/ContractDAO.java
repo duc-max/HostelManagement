@@ -84,7 +84,7 @@ public class ContractDAO {
                 c.setCustomerName(cursor.getString(2));
                 c.setPhone(cursor.getString(3));
                 c.setAddress(cursor.getString(4));
-                c.setRoom(cursor.getString(5));
+                c.setRoom(cursor.getInt(5));
                 c.setNumPeople(cursor.getInt(6));
                 c.setRoomPrice(cursor.getInt(7));
                 c.setDeposit(cursor.getInt(8));
@@ -114,7 +114,7 @@ public class ContractDAO {
             c.setCustomerName(cursor.getString(2));
             c.setPhone(cursor.getString(3));
             c.setAddress(cursor.getString(4));
-            c.setRoom(cursor.getString(5));
+            c.setRoom(cursor.getInt(5));
             c.setNumPeople(cursor.getInt(6));
             c.setRoomPrice(cursor.getInt(7));
             c.setDeposit(cursor.getInt(8));
@@ -134,8 +134,8 @@ public class ContractDAO {
     }
 
     // New method: Get contract by room name
-    public Contract getContractByRoomName(String roomName) {
-        Cursor cursor = db.rawQuery("SELECT * FROM " + MyDatabaseHelper.TABLE_CONTRACT + " WHERE room = ?", new String[]{roomName});
+    public Contract getContractByRoomNumber(int roomNumber) {
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MyDatabaseHelper.TABLE_CONTRACT + " WHERE room = ?", new String[]{String.valueOf(roomNumber)});
         if (cursor != null && cursor.moveToFirst()) {
             Contract c = new Contract();
             c.setId(cursor.getInt(0));
@@ -143,7 +143,7 @@ public class ContractDAO {
             c.setCustomerName(cursor.getString(2));
             c.setPhone(cursor.getString(3));
             c.setAddress(cursor.getString(4));
-            c.setRoom(cursor.getString(5));
+            c.setRoom(cursor.getInt(5));
             c.setNumPeople(cursor.getInt(6));
             c.setRoomPrice(cursor.getInt(7));
             c.setDeposit(cursor.getInt(8));

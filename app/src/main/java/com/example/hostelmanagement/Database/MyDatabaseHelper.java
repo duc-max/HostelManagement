@@ -12,6 +12,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_HOSTEL = "hostel";
     public static final String TABLE_ROOM = "room";
     public static final String TABLE_CONTRACT = "contract";
+    public static final String TABLE_INVOICE = "invoice";
 
     public MyDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -79,6 +80,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 "note TEXT" +
                 ")";
         db.execSQL(createContractTable);
+        String createInvoiceTable =  "CREATE TABLE " + TABLE_INVOICE + " (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "roomId INTEGER," +
+                "total INTEGER," +
+                "contractId INTEGER," +
+                "FOREIGN KEY(roomId) REFERENCES room(id)," +
+                "FOREIGN KEY(contractId) REFERENCES contract(id)" +
+                ")";
+        db.execSQL(createInvoiceTable);
 
     }
 
@@ -88,6 +98,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOSTEL);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ROOM);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTRACT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_INVOICE);
+
         onCreate(db);
     }
 }

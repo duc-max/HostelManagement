@@ -112,7 +112,7 @@ public class Fee extends AppCompatActivity {
             roomName.setTypeface(null, Typeface.BOLD);
             roomName.setPadding(0, 20, 0, 8);
 
-            Contract contract = contractDAO.getContractByRoomName(room.getRoomName());
+            Contract contract = contractDAO.getContractByRoomNumber(room.getId());
             TextView renter = new TextView(this);
             if (contract != null) {
                 renter.setText("Người thuê: " + contract.getCustomerName() + " - ĐT: " + contract.getPhone());
@@ -128,7 +128,7 @@ public class Fee extends AppCompatActivity {
             btnBaoPhi.setBackgroundColor(Color.parseColor("#9C27B0"));
             btnBaoPhi.setPadding(20, 16, 20, 16);
             btnBaoPhi.setOnClickListener(v -> {
-                showElectricInputDialog(room.getRoomName());
+                showElectricInputDialog(room.getId(), room.getRoomName());
             });
 
             roomCard.addView(roomName);
@@ -145,8 +145,8 @@ public class Fee extends AppCompatActivity {
             roomListContainer.addView(tv);
         }
     }
-    private void showElectricInputDialog(String roomName) {
-        Contract contract = contractDAO.getContractByRoomName(roomName);
+    private void showElectricInputDialog(int roomId, String roomName) {
+        Contract contract = contractDAO.getContractByRoomNumber(roomId);
         if (contract == null) {
             Toast.makeText(this, "Không tìm thấy hợp đồng!", Toast.LENGTH_SHORT).show();
             return;

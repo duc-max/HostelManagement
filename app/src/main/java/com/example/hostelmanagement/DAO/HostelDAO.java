@@ -99,6 +99,34 @@ public class HostelDAO {
         // Cập nhật dựa trên ID của phòng
         return db.update(MyDatabaseHelper.TABLE_HOSTEL, values, "id = ?", new String[]{String.valueOf(room.getId())});
     }
+    public Hostel getHostelById(int id) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(MyDatabaseHelper.TABLE_HOSTEL, null, "id = ?", new String[]{String.valueOf(id)}, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Hostel hostel = new Hostel();
+            hostel.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
+            hostel.setAddress(cursor.getString(cursor.getColumnIndexOrThrow("address")));
+            hostel.setOwner(cursor.getString(cursor.getColumnIndexOrThrow("owner")));
+            hostel.setPhone(cursor.getString(cursor.getColumnIndexOrThrow("phone")));
+            hostel.setElectricPrice(cursor.getInt(cursor.getColumnIndexOrThrow("electric")));
+            hostel.setWaterPrice(cursor.getInt(cursor.getColumnIndexOrThrow("water")));
+            hostel.setVehiclePrice(cursor.getInt(cursor.getColumnIndexOrThrow("vehicle")));
+            hostel.setInternetPrice(cursor.getInt(cursor.getColumnIndexOrThrow("internet")));
+            hostel.setLaundryPrice(cursor.getInt(cursor.getColumnIndexOrThrow("laundry")));
+            hostel.setElevatorPrice(cursor.getInt(cursor.getColumnIndexOrThrow("elevator")));
+            hostel.setTvPrice(cursor.getInt(cursor.getColumnIndexOrThrow("tv")));
+            hostel.setGarbagePrice(cursor.getInt(cursor.getColumnIndexOrThrow("garbage")));
+            hostel.setServicePrice(cursor.getInt(cursor.getColumnIndexOrThrow("service")));
+            hostel.setBankOwner(cursor.getString(cursor.getColumnIndexOrThrow("bank_owner")));
+            hostel.setBankName(cursor.getString(cursor.getColumnIndexOrThrow("bank_name")));
+            hostel.setBankAccount(cursor.getString(cursor.getColumnIndexOrThrow("bank_account")));
+            cursor.close();
+            return hostel;
+        }
+
+        return null;
+    }
 
 
 }

@@ -6,7 +6,7 @@ public class Contract {
     private String customerName;
     private String phone;
     private String address;
-    private String room;
+    private int room;
     private int numPeople;
     private int roomPrice;
     private int deposit;
@@ -23,7 +23,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract( String contractNumber, String customerName, String phone, String address, String room, int numPeople,
+    public Contract( String contractNumber, String customerName, String phone, String address, int room, int numPeople,
                     int roomPrice, int deposit, String startDate, int duration, int reminder, int electricIndex,
                     int hasParking, int bikeCount, int hasInternet, int hasLaundry, String note) {
         this.contractNumber = contractNumber;
@@ -85,11 +85,11 @@ public class Contract {
         this.address = address;
     }
 
-    public String getRoom() {
+    public int getRoom() {
         return room;
     }
 
-    public void setRoom(String room) {
+    public void setRoom(int room) {
         this.room = room;
     }
 

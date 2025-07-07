@@ -85,7 +85,6 @@ public class CreateContract extends AppCompatActivity {
             finish(); // Close current activity
         });
 
-        // Get room ID from intent
         roomId = getIntent().getIntExtra("room_id", -1);
 
         if (roomId != -1) {
@@ -176,7 +175,7 @@ public class CreateContract extends AppCompatActivity {
         int hasLaundry = chkLaundry.isChecked() ? 1 : 0;
 
         // Create Contract object
-        Contract contract = new Contract(contractNumber, customerName, phone, address, room, numPeople,
+        Contract contract = new Contract(contractNumber, customerName, phone, address, roomId, numPeople,
                 roomPrice, deposit, startDate, duration, reminder, electricIndex,
                 hasParking, bikeCount, hasInternet, hasLaundry, note);
 

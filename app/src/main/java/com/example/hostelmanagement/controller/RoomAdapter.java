@@ -58,7 +58,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
             holder.btnDelete.setVisibility(View.GONE);
 
             // Hiển thị hợp đồng
-            Contract contract = contractDAO.getContractByRoomName(room.getRoomName());
+            Contract contract = contractDAO.getContractByRoomNumber(room.getId());
             if (contract != null) {
                 holder.tvCustomerName.setText("Người thuê: " + contract.getCustomerName());
                 holder.tvCustomerPhone.setText("SĐT: " + contract.getPhone());
