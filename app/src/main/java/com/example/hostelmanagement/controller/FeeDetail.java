@@ -29,6 +29,8 @@ public class FeeDetail extends AppCompatActivity {
     TextView tvDate, tvTenant, tvPhone, tvRoom,
             tvElectricDetail, tvWater, tvBike, tvRoomFee,
             tvCurrentFee, tvPreviousDue, tvTotalAmount, tvNote;
+    TextView  tvWaterDetail, tvInternetDetail, tvGarbageDetail,
+            tvBikeDetail, tvRoomFeeDetail;
     Button btnSaveSend;
     ImageView btnBack;
 
@@ -90,14 +92,43 @@ public class FeeDetail extends AppCompatActivity {
         int bikeCount = contract.getHasParking() == 1 ? contract.getBikeCount() : 0;
         int bikeCost = bikeCount * hostel.getVehiclePrice();
         int roomFee = contract.getRoomPrice();
-        int total = electricCost + waterCost + bikeCost + roomFee;
+        int internetCost = contract.getHasInternet() == 1 ? hostel.getInternetPrice() : 0;
+        int laundryCost = contract.getHasLaundry() == 1 ? hostel.getLaundryPrice() : 0;
+        int tvCost = hostel.getTvPrice();
+        int garbageCost = hostel.getGarbagePrice();
+        int serviceCost = hostel.getServicePrice();
+        int elevatorCost = hostel.getElevatorPrice();
 
+        int total = electricCost + waterCost + bikeCost + roomFee +
+                internetCost + laundryCost + tvCost +
+                garbageCost + serviceCost + elevatorCost;
         // Hiển thị chi tiết
         tvElectricDetail.setText(oldIndex + " → " + newIndex + " x " + formatter.format(hostel.getElectricPrice()) + " = " + formatter.format(electricCost) + " đ");
-        tvWater.setText(formatter.format(waterCost) + " đ");
-        tvBike.setText(bikeCount + " x " + formatter.format(hostel.getVehiclePrice()) + " = " + formatter.format(bikeCost) + " đ");
-        tvRoomFee.setText(formatter.format(roomFee) + " đ");
 
+// Nước
+        tvWaterDetail.setText("1 x " + formatter.format(waterCost) + " = " + formatter.format(waterCost) + " đ");
+
+// Internet
+        if (internetCost > 0) {
+            tvInternetDetail.setText("1 x " + formatter.format(hostel.getInternetPrice()) + " = " + formatter.format(internetCost) + " đ");
+        } else {
+            tvInternetDetail.setText("Không sử dụng");
+        }
+
+// Rác
+        tvGarbageDetail.setText("1 x " + formatter.format(garbageCost) + " = " + formatter.format(garbageCost) + " đ");
+
+// Xe
+        if (bikeCount > 0) {
+            tvBikeDetail.setText(bikeCount + " x " + formatter.format(hostel.getVehiclePrice()) + " = " + formatter.format(bikeCost) + " đ");
+        } else {
+            tvBikeDetail.setText("Không có xe");
+        }
+
+// Tiền phòng
+        tvRoomFeeDetail.setText(formatter.format(roomFee) + " đ");
+
+// Tổng, nợ cũ và tổng thanh toán
         tvCurrentFee.setText(formatter.format(total) + " đ");
         tvPreviousDue.setText("0 đ");
         tvTotalAmount.setText(formatter.format(total) + " đ");
@@ -136,14 +167,19 @@ public class FeeDetail extends AppCompatActivity {
         tvPhone = findViewById(R.id.tvPhone);
         tvRoom = findViewById(R.id.tvRoom);
         btnBack = findViewById(R.id.btnBack);
+
         tvElectricDetail = findViewById(R.id.tvElectricDetail);
-        tvWater = findViewById(R.id.tvWater);
-        tvBike = findViewById(R.id.tvBike);
-        tvRoomFee = findViewById(R.id.tvRoomFee);
+        tvWaterDetail = findViewById(R.id.tvWaterDetail);
+        tvInternetDetail = findViewById(R.id.tvInternetDetail);
+        tvGarbageDetail = findViewById(R.id.tvGarbageDetail);
+        tvBikeDetail = findViewById(R.id.tvBikeDetail);
+        tvRoomFeeDetail = findViewById(R.id.tvRoomFeeDetail);
+
         tvCurrentFee = findViewById(R.id.tvCurrentFee);
         tvPreviousDue = findViewById(R.id.tvPreviousDue);
         tvTotalAmount = findViewById(R.id.tvTotalAmount);
         tvNote = findViewById(R.id.tvNote);
         btnSaveSend = findViewById(R.id.btnSaveSend);
     }
+
 }
