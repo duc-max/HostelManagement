@@ -4,8 +4,10 @@
     android:background="@drawable/bg_item_sta"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
-    android:layout_marginBottom="12dp">
+    android:padding="16dp"
+    android:layout_marginBottom="12dp"
+    android:elevation="4dp"
+    android:backgroundTint="#FFFFFF">
 
     <TextView
         android:id="@+id/tvHostelAddress"
@@ -14,7 +16,8 @@
         android:text="Địa chỉ"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="#000" />
+        android:textColor="#2E2E2E"
+        android:layout_marginBottom="4dp" />
 
     <TextView
         android:id="@+id/tvTotalRevenue"
@@ -22,5 +25,5 @@
         android:layout_height="wrap_content"
         android:text="Doanh thu"
         android:textSize="14sp"
-        android:textColor="#333" />
+        android:textColor="#007BFF" />
 </LinearLayout>
